@@ -2,7 +2,6 @@ import flatpickr from 'flatpickr';
 import iziToast from "izitoast";
 
 const btn = document.querySelector('button');
-// btn.disabled = true;
 
 // календар в інпуті+алерт з бібліотеки при виборі минулої дати
 const options = {
@@ -12,7 +11,6 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     const date = Date.now();
-   
     if (selectedDates[0] < date) {
       btn.disabled = true;
       iziToast.show({
@@ -28,9 +26,7 @@ const options = {
       timer;
     }
     console.log(selectedDates[0]);
-    
   },
-  
 };
 
 const input = document.querySelector('#datetime-picker');
@@ -65,7 +61,6 @@ class Timer{
 
   }
 
-
   convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -99,6 +94,7 @@ const dataHour = document.querySelector('.value[data-hours]');
 const dataMinute = document.querySelector('.value[data-minutes]');
 const dataSecond = document.querySelector('.value[data-seconds]')
 
+// оновлення таймеру
 function updateTimer({ days, hours, minutes, seconds }) {
   dataDay.textContent = `${days}`;
   dataHour.textContent = `${hours}`;
@@ -108,6 +104,5 @@ function updateTimer({ days, hours, minutes, seconds }) {
 const timer = new Timer({
   onTick: updateTimer
   })
-
 
 btn.addEventListener('click', timer.start.bind(timer))
