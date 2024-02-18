@@ -50,6 +50,7 @@ button:disabled {
   justify-content: space-evenly;
 }
 .value {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 1.2;
@@ -64,6 +65,7 @@ button:disabled {
   color: #2e2f42;
   text-align: center;
   text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
 }
 .field {
   display: flex;
