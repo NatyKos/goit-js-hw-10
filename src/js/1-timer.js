@@ -2,7 +2,8 @@ import flatpickr from 'flatpickr';
 import iziToast from "izitoast";
 
 const btn = document.querySelector('button');
-btn.disabled = true;
+// btn.disabled = true;
+
 // календар в інпуті+алерт з бібліотеки при виборі минулої дати
 const options = {
   enableTime: true,
@@ -13,6 +14,7 @@ const options = {
     const date = Date.now();
    
     if (selectedDates[0] < date) {
+      btn.disabled = true;
       iziToast.show({
         iconUrl: '../img/icon.svg',
         message: 'Please choose a date in the future',
@@ -23,7 +25,6 @@ const options = {
       });
     } else {
       btn.disabled = false;
-      input.disabled = true;
       timer;
     }
     console.log(selectedDates[0]);
@@ -42,14 +43,28 @@ class Timer{
     this.interval = null;
   };
   start() {
+    btn.disabled = true;
+    input.disabled = true;
     const startTime = new Date(input.value).getTime();
     this.interval = setInterval(() => {
       const curentTime = Date.now();
       const delta = startTime - curentTime;
       const time = this.convertMs(delta);
+      if (delta <= 0) {
+      this.stop();
+      return;
+      }
       this.onTick(time);
-    },1000)
+    }, 1000)
+    
   };
+  stop() {  
+    clearInterval(this.interval);
+    btn.disabled = false;
+    input.disabled = false;
+
+  }
+
 
   convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -95,4 +110,4 @@ const timer = new Timer({
   })
 
 
-btn.addEventListener('click', timer.start.bind(timer));
+btn.addEventListener('click', timer.start.bind(timer))
