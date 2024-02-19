@@ -2,6 +2,7 @@ import flatpickr from 'flatpickr';
 import iziToast from "izitoast";
 
 const btn = document.querySelector('button');
+btn.disabled = true;
 
 // календар в інпуті+алерт з бібліотеки при виборі минулої дати
 const options = {
