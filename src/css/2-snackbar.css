@@ -15,6 +15,9 @@ button {
   border: none;
   color: #ffffff;
 }
+button:hover {
+  background-color: #6c8cff;
+}
 
 fieldset {
   border-radius: 4px;
