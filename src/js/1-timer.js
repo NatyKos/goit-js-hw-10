@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import iziToast from "izitoast";
+import icon from "../img/icon.svg";
 
 const btn = document.querySelector('button');
 btn.disabled = true;
@@ -15,7 +16,7 @@ const options = {
     if (selectedDates[0] < date) {
       btn.disabled = true;
       iziToast.show({
-        iconUrl: '../img/icon.svg',
+        iconUrl: icon,
         message: 'Please choose a date in the future',
         messageColor: '#ffffff',
         color: '#ef4040',
