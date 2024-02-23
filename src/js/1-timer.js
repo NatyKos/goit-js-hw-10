@@ -1,6 +1,8 @@
 import flatpickr from 'flatpickr';
 import iziToast from "izitoast";
 import icon from "../img/icon.svg";
+import 'flatpickr/dist/flatpickr.min.css';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const btn = document.querySelector('button');
 btn.disabled = true;

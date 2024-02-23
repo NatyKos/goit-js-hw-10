@@ -1,7 +1,7 @@
 import iziToast from "izitoast";
+import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.form')
-// const ratioBnt = form.elements.state;
 
 form.addEventListener('submit', handleCreate);
 
@@ -10,41 +10,40 @@ function handleCreate(event) {
     const dataDelay = event.target.elements.delay.value;
     const ratioBnt = event.target.elements.state.value;
     
-    function getValueRatioBtn(dataDelay) {
+    function createNotification(dataDelay) {
         return new Promise((res, rej) => {
-            if (ratioBnt === 'fulfilled') {
-                res(`✅ Fulfilled promise in ${dataDelay}ms`);
-            } else {
-                rej(`❌ Rejected promise in ${dataDelay}ms`)
-            }
-
-        }, dataDelay)
-    }
+            setTimeout(() => {
+                if (ratioBnt === 'fulfilled') {
+                    res(`✅ Fulfilled promise in ${dataDelay}ms`);
+                } else {
+                    rej(`❌ Rejected promise in ${dataDelay}ms`)
+                }
+            }, dataDelay)
+        })
+    };
     
-    getValueRatioBtn(dataDelay)
+    createNotification(dataDelay)
         .then(value => {
-            iziToast.success({
+            iziToast.show({
                 message: `${value}`,
                 messageColor: '#ffffff',
                 backgroundColor: '#65B741',
                 position: 'topRight',
-                theme: 'dark',
                 progressBarColor: '#ffffff',
                 timeout: 3000,
-                displayMode: '2'
+                close: false
             
             })
         })
         .catch (error => {
-            iziToast.error({
+            iziToast.show({
                 message: `${error}`,
                 messageColor: '#ffffff',
                 backgroundColor: '#FF6868',
                 position: 'topRight',
-                theme: 'dark',
                 progressBarColor: '#ffffff',
                 timeout: 3000,
-                displayMode: '2'
+                close: false
             })
     })  
 };
