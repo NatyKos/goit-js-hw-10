@@ -21,7 +21,7 @@ const options = {
         messageColor: '#ffffff',
         color: '#ef4040',
         close: false,
-        position: 'topRight',
+        position: 'topRight'        
       });
     } else {
       btn.disabled = false;
