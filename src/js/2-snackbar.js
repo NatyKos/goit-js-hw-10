@@ -27,10 +27,9 @@ function handleCreate(event) {
             iziToast.show({
                 message: `${value}`,
                 messageColor: '#ffffff',
-                backgroundColor: '#65B741',
+                color: '#65B741',
                 position: 'topRight',
                 progressBarColor: '#ffffff',
-                timeout: 3000,
                 close: false
             
             })
@@ -39,10 +38,9 @@ function handleCreate(event) {
             iziToast.show({
                 message: `${error}`,
                 messageColor: '#ffffff',
-                backgroundColor: '#FF6868',
+                color: '#FF6868',
                 position: 'topRight',
                 progressBarColor: '#ffffff',
-                timeout: 3000,
                 close: false
             })
     })  
