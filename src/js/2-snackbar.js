@@ -12,20 +12,21 @@ function handleCreate(event) {
     
     function createNotification(dataDelay) {
         return new Promise((res, rej) => {
+            const delay = Number(dataDelay);
             setTimeout(() => {
                 if (ratioBnt === 'fulfilled') {
-                    res(`✅ Fulfilled promise in ${dataDelay}ms`);
+                    res(delay);
                 } else {
-                    rej(`❌ Rejected promise in ${dataDelay}ms`)
+                    rej(delay)
                 }
-            }, dataDelay)
+            }, delay)
         })
     };
     
     createNotification(dataDelay)
         .then(value => {
             iziToast.show({
-                message: `${value}`,
+                message: `✅ Fulfilled promise in ${dataDelay}ms`,
                 messageColor: '#ffffff',
                 color: '#65B741',
                 position: 'topRight',
@@ -36,7 +37,7 @@ function handleCreate(event) {
         })
         .catch (error => {
             iziToast.show({
-                message: `${error}`,
+                message: `❌ Rejected promise in ${dataDelay}ms`,
                 messageColor: '#ffffff',
                 color: '#FF6868',
                 position: 'topRight',

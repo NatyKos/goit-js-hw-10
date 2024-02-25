@@ -29,7 +29,6 @@ const options = {
       btn.disabled = false;
       timer;
     }
-    console.log(selectedDates[0]);
   },
 };
 
@@ -41,7 +40,7 @@ class Timer{
   constructor({ onTick }) {
     this.onTick = onTick;
     this.interval = null;
-  };
+  }
   start() {
     btn.disabled = true;
     input.disabled = true;
@@ -57,7 +56,7 @@ class Timer{
       this.onTick(time);
     }, 1000)
     
-  };
+  }
   stop() {  
     clearInterval(this.interval);
     btn.disabled = false;
